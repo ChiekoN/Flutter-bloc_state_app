@@ -1,0 +1,77 @@
+import 'package:uuid/uuid.dart';
+
+import '../../domain/models/todate.dart';
+import '../../domain/repository/todate_repo.dart';
+import '../models/data_todate.dart';
+
+class TodateDataRepo implements TodateRepo {
+
+  // Initial data for a sample
+  List<Todate> todates = [
+    Todate(
+      id: const Uuid().v4(),
+      date: DateTime(2025, 7, 15),
+      title: 'Emma\'s wedding',
+      memo: 'At Crown Hall at 11:00am',
+    ),
+    Todate(
+      id: const Uuid().v4(),
+      date: DateTime(2025, 10, 3),
+      title: 'Holiday in Bangkok',
+      memo: 'Return on 10/8',
+    ),
+    Todate(
+      id: const Uuid().v4(),
+      date: DateTime(2025, 11, 7),
+      title: 'My birthday',
+      memo: 'No plan yet',
+    ),
+    Todate(
+      id: const Uuid().v4(),
+      date: DateTime(2025, 12, 15),
+      title: 'Christmas event',
+      memo: 'No plan yet',
+    ),
+  ];
+
+
+  @override
+  List<Todate> getTodates() {
+    sortTodates();
+    return todates;
+  }
+
+  @override
+  void addTodate(Todate newTodate) {
+    todates.add(newTodate);
+    sortTodates();
+  }
+
+  @override
+  void updateTodate(Todate todate) {
+    
+    int index = todates.indexWhere(
+      (d) => d.id == todate.id
+    );
+
+    todates[index].date = todate.date;
+    todates[index].title = todate.title;
+    todates[index].memo = todate.memo;
+    sortTodates();
+  }
+
+  void deleteTodate(Todate todate) {
+
+    int index = todates.indexWhere(
+      (d) => d.id == todate.id
+    );
+    todates.removeAt(index);
+    sortTodates();
+  }
+
+  void sortTodates() {
+    todates.sort((a, b) => a.date.compareTo(b.date));
+  }
+
+
+} 
