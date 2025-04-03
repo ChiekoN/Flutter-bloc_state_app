@@ -18,25 +18,30 @@ class _NewDatePageState extends State<NewDatePage> {
   DateTime lastDate = DateTime(2200); // Max date
   String selectedDateString = '';
 
-  final textContoroller = TextEditingController();
+  final textController = TextEditingController();
   String title = '';
 
   final memoController = TextEditingController();
   String? memo;
 
-
   @override
   void initState() {
     super.initState();
+    textController.addListener(_setLatestTitleValue);
   }
 
   @override
   void dispose() {
-    textContoroller.dispose();
+    textController.dispose();
     memoController.dispose();
     super.dispose();
   }
 
+  void _setLatestTitleValue() {
+    setState(() {
+      title = textController.text;
+    });
+  }
 
   void _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -45,7 +50,7 @@ class _NewDatePageState extends State<NewDatePage> {
       firstDate: firstDate,
       lastDate: lastDate,
     );
-    print(picked);
+    print(picked); //DEV
 
     if (picked != null && picked != selectedDate){
       setState(() {
