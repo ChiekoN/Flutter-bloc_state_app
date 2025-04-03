@@ -1,3 +1,4 @@
+import 'package:bloc_state_app/feature/shared/todate_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -62,12 +63,18 @@ class _NewDatePageState extends State<NewDatePage> {
   }
 
   
-  String?  onSave() {
+  String?  _onSave(BuildContext context) {
+    final todateCubit = context.read<TodateCubit>();
     // If selectedDateString is empty OR title is empty, 
     //    return null;
+    if(selectedDateString.isEmpty || title.isEmpty) {
+      return null;
+    }
+    
+
     // Else
     //    todateRepo.addTodate(newTodate);
-    return null;
+    
   }
   
 
@@ -91,7 +98,7 @@ class _NewDatePageState extends State<NewDatePage> {
                   border: OutlineInputBorder(),
                   labelText: 'Title',
                 ),
-                controller: textContoroller,
+                controller: textController,
               ),
               Row(
                 children: [
@@ -116,7 +123,7 @@ class _NewDatePageState extends State<NewDatePage> {
               ),
               // Save button
               FilledButton(
-                onPressed: null,
+                onPressed: _onSave(context),
                 child: Text('Save'),
               )
             ],
