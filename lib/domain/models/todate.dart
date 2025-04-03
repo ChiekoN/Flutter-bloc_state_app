@@ -1,7 +1,7 @@
 import 'package:uuid/uuid.dart';
 
 class Todate {
-  String id;
+  String? id;
   DateTime date;
   String title;
   String? memo;

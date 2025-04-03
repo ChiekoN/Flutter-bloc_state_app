@@ -4,7 +4,7 @@ import '../../domain/models/todate.dart';
 import '../../domain/repository/todate_repo.dart';
 import '../models/data_todate.dart';
 
-class TodateDataRepo implements TodateRepo {
+class TodateRepoData implements TodateRepo {
 
   // Initial data for a sample
   List<Todate> todates = [
@@ -44,7 +44,7 @@ class TodateDataRepo implements TodateRepo {
   @override
   void addTodate(Todate newTodate) {
     todates.add(newTodate);
-    sortTodates();
+    //sortTodates();
   }
 
   @override
@@ -57,16 +57,17 @@ class TodateDataRepo implements TodateRepo {
     todates[index].date = todate.date;
     todates[index].title = todate.title;
     todates[index].memo = todate.memo;
-    sortTodates();
+    //sortTodates();
   }
 
+  @override
   void deleteTodate(Todate todate) {
 
     int index = todates.indexWhere(
       (d) => d.id == todate.id
     );
     todates.removeAt(index);
-    sortTodates();
+    //sortTodates();
   }
 
   void sortTodates() {

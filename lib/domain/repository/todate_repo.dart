@@ -14,8 +14,8 @@ abstract class TodateRepo {
 
   void addTodate(Todate newTodate);
 
-  void updateTodate(Todate Todate);
+  void updateTodate(Todate todate);
 
-  void deleteTodate(Todate Todate);
+  void deleteTodate(Todate todate);
 
 }
