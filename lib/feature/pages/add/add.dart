@@ -1,8 +1,9 @@
-import 'package:bloc_state_app/feature/shared/todate_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../shared/router.dart';
+import '../../shared/todate_cubit.dart';
 import '../../../domain/models/todate.dart';
 
 class NewDatePage extends StatefulWidget {
@@ -62,19 +63,16 @@ class _NewDatePageState extends State<NewDatePage> {
     }
   }
 
-  
-  String?  _onSave(BuildContext context) {
-    final todateCubit = context.read<TodateCubit>();
-    // If selectedDateString is empty OR title is empty, 
-    //    return null;
-    if(selectedDateString.isEmpty || title.isEmpty) {
-      return null;
-    }
-    
-
-    // Else
-    //    todateRepo.addTodate(newTodate);
-    
+  void _onSave(BuildContext context) {
+    // Add to list
+    context.read<TodateCubit>().addTodate(
+      Todate(
+        date: selectedDate,
+        title: title,
+        memo: memo,
+      )
+    );
+    context.go(AppRoutes.home);
   }
   
 
@@ -123,7 +121,7 @@ class _NewDatePageState extends State<NewDatePage> {
               ),
               // Save button
               FilledButton(
-                onPressed: _onSave(context),
+                onPressed: (selectedDateString.isEmpty || title.isEmpty) ? null : () {_onSave(context);},
                 child: Text('Save'),
               )
             ],
