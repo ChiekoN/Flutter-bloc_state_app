@@ -30,13 +30,8 @@ class _TopListPageState extends State<TopListPage> {
               dismissThresholds: {
                 DismissDirection.endToStart: 0.3,
               },
-              onDismissed: (direction) {
-                /*
-                setState((){
-                  todates.removeAt(index);
-                });
-                */
-                context.read<TodateCubit>().deleteTodate(todates[index]);
+              onDismissed: (direction) {                
+                context.read<TodateCubit>().deleteTodate(item);
                 ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text('${item.title} dismissed')));
               },
