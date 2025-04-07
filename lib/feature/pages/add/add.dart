@@ -24,7 +24,6 @@ class _NewDatePageState extends State<NewDatePage> {
   String title = '';
 
   final memoController = TextEditingController();
-  String? memo;
 
   @override
   void initState() {
@@ -65,6 +64,7 @@ class _NewDatePageState extends State<NewDatePage> {
 
   void _onSave(BuildContext context) {
     // Add to list
+    String? memo = memoController.text;
     context.read<TodateCubit>().addTodate(
       Todate(
         date: selectedDate,

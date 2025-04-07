@@ -58,10 +58,10 @@ final appRouter = GoRouter(
           ),
         ),
         GoRoute(
-          path: '${AppRoutes.detail}/:index',
+          path: '${AppRoutes.detail}/:todateId',
           pageBuilder: (context, state) => NoTransitionPage(
             child: DateDetailPage(
-              index: state.pathParameters['index']
+              id: state.pathParameters['todateId']
             ),
           ),
         ),

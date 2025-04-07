@@ -48,7 +48,7 @@ class _TopListPageState extends State<TopListPage> {
                 ),
                 subtitle: Text(item.dateString),
                 onTap:() {
-                  context.go('/${AppRoutes.detail}/${index.toString()}');
+                  context.go('/${AppRoutes.detail}/${item.id}');
                 }
               )
             );
