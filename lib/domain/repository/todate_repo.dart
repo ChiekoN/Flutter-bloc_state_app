@@ -12,6 +12,8 @@ abstract class TodateRepo {
   */
   List<Todate> getTodates();
 
+  //List<Todate> getFutureTodates();
+
   void addTodate(Todate newTodate);
 
   void updateTodate(Todate todate);
