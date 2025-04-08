@@ -10,6 +10,18 @@ class TodateRepoData implements TodateRepo {
   List<Todate> todates = [
     Todate(
       id: const Uuid().v4(),
+      date: DateTime(2024, 12, 27),
+      title: 'Camping in Margaret River',
+      memo: 'Conto campground, 2 nights',
+    ),
+    Todate(
+      id: const Uuid().v4(),
+      date: DateTime(2025, 2, 25),
+      title: 'Perth business meeting',
+      memo: 'At Firaobo 6:00pm',
+    ),
+    Todate(
+      id: const Uuid().v4(),
       date: DateTime(2025, 7, 15),
       title: 'Emma\'s wedding',
       memo: 'At Crown Hall at 11:00am',
@@ -33,7 +45,6 @@ class TodateRepoData implements TodateRepo {
       memo: 'No plan yet',
     ),
   ];
-
 
   @override
   List<Todate> getTodates() {
