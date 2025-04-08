@@ -24,9 +24,9 @@ class _TopListPageState extends State<TopListPage> {
         DateTime now = DateTime.now();
         DateTime today = DateTime(now.year, now.month, now.day);
         List<Todate> futureTodates = todates.where(
-          (todate) => todate.date.isAfter(today)
+          (todate) => todate.date.isAfter(today) || todate.date == today
         ).toList();
-        
+
         return ListView.builder(  
           itemCount: futureTodates.length,
           itemBuilder: (context, index) {

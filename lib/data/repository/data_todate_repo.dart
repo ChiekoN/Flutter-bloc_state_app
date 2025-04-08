@@ -54,9 +54,11 @@ class TodateRepoData implements TodateRepo {
 
   @override
   void addTodate(Todate newTodate) {
+    newTodate.date = newTodate.dateOnly; // Set the Time in DateTime to 00:00:00 forcibly.
     todates.add(newTodate);
     //sortTodates();
   }
+
 
   @override
   void updateTodate(Todate todate) {
@@ -65,7 +67,7 @@ class TodateRepoData implements TodateRepo {
       (d) => d.id == todate.id
     );
 
-    todates[index].date = todate.date;
+    todates[index].date = todate.dateOnly; // Set the Time in DateTime to 00:00:00 forcibly.
     todates[index].title = todate.title;
     todates[index].memo = todate.memo;
     //sortTodates();

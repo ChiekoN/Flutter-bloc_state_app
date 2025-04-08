@@ -50,18 +50,21 @@ class DateDetailPage extends StatelessWidget {
           ];
         }
         return Scaffold(
+          appBar: AppBar(),
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: children,
             ),
           ),
+          /*
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               context.go(AppRoutes.home);
             },
             child: const Icon(Icons.close),
           ),
+          */
         );
       }
     );

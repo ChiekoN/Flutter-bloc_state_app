@@ -19,6 +19,7 @@ class ScaffoldWithBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Scaffold(
+      appBar: AppBar(),
       body: child,
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentIndex,
