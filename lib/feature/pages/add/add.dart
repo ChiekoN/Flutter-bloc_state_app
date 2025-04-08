@@ -87,38 +87,55 @@ class _NewDatePageState extends State<NewDatePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'Add your important day!',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Title',
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 32),
+                child: Text(
+                  'Add your important day!',
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                controller: textController,
               ),
-              Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () => _selectDate(context),
-                    child: const Text('Date'),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 32, 0, 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Title',
                   ),
-                  Text(
-                    selectedDateString,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  )
-                ],
-              ),
-              TextField(
-                maxLength: 2000,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Add some notes (optional)',
-                  labelText: 'Memo',
+                  controller: textController,
                 ),
-                controller: memoController,
               ),
+
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => _selectDate(context),
+                      child: const Text('Date'),
+                    ),
+                    Text(
+                      selectedDateString,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    )
+                  ],
+                ),
+              ),      
+              
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                child: TextField(
+                  maxLength: 2000,
+                  maxLines: 5,
+                  minLines: 3,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Add some notes (optional)',
+                    labelText: 'Memo',
+                  ),
+                  controller: memoController,
+                ),
+              ),
+
               // Save button
               FilledButton(
                 onPressed: (selectedDateString.isEmpty || title.isEmpty) ? null : () {_onSave(context);},
