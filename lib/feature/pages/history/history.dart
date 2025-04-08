@@ -56,7 +56,7 @@ class _HistoryListPageState extends State<HistoryListPage> {
                 ),
                 subtitle: Text(item.dateString),
                 onTap:() {
-                  context.go('/${AppRoutes.detail}/${item.id}');
+                  context.go('${AppRoutes.history}/${AppRoutes.historyDetail}/${item.id}');
                 }
               ),
             );

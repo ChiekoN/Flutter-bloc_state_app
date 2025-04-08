@@ -5,6 +5,7 @@ import '../pages/toplist/toplist.dart';
 import '../pages/add/add.dart';
 import '../pages/detail/detail.dart';
 import '../pages/history/history.dart';
+import '../pages/history_detail/history_detail.dart';
 import 'bottom_navbar.dart';
 
 
@@ -13,6 +14,7 @@ class AppRoutes {
   static const add = 'add';
   static const detail = 'detail';
   static const history = '/history';
+  static const historyDetail = 'history_detail';
 }
 
 const List<NavigationDestinationRoute> destinations = [
@@ -75,6 +77,16 @@ final appRouter = GoRouter(
           child: HistoryListPage(),
         ),
       ),
+      routes: [
+        GoRoute(
+          path: '${AppRoutes.historyDetail}/:todateId',
+          pageBuilder: (context, state) => NoTransitionPage(
+            child: HistoryDetailPage(
+              id: state.pathParameters['todateId']
+            ),
+          ),
+        ),
+      ],
     ),
   ],
 );
