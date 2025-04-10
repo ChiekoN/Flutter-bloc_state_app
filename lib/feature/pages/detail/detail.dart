@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 import '../../shared/router.dart';
 import '../../shared/todate_cubit.dart';
 import '../../../domain/models/todate.dart';
-
+import 'memo_area.dart';
 
 
 class DateDetailPage extends StatelessWidget {
@@ -80,7 +80,7 @@ class DateDetailPage extends StatelessWidget {
   }
 }
 
-
+/*
 class MemoArea extends StatelessWidget {
   const MemoArea({super.key, this.memoText});
 
@@ -123,3 +123,4 @@ class MemoArea extends StatelessWidget {
       );
   }
 }
+*/

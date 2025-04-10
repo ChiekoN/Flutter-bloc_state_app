@@ -5,7 +5,7 @@ import '../pages/toplist/toplist.dart';
 import '../pages/add/add.dart';
 import '../pages/detail/detail.dart';
 import '../pages/history/history.dart';
-import '../pages/history_detail/history_detail.dart';
+import '../pages/detail/history_detail.dart';
 import 'bottom_navbar.dart';
 
 
