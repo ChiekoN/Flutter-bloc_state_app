@@ -18,7 +18,7 @@ class _NewDatePageState extends State<NewDatePage> {
   DateTime firstDate = DateTime.now().add(Duration(days:1)); // Available date is tomorrow and after.
   DateTime selectedDate = DateTime.now().add(Duration(days:1)); // Initial value
   DateTime lastDate = DateTime(2200); // Max date
-  String selectedDateString = '';
+  String selectedDateString = 'No date selected yet';
 
   final textController = TextEditingController();
   String title = '';
@@ -82,75 +82,84 @@ class _NewDatePageState extends State<NewDatePage> {
       appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
-        child: 
-          Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 32),
-                child: Text(
-                  'Add your important day!',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 32),
+              child: Text(
+                'Add your important day!',
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 32, 0, 16),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Title',
-                  ),
-                  controller: textController,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 32, 0, 16),
+              child: TextField(
+                maxLength: 40,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Title',
+                  hintText: 'What day?',
+                  alignLabelWithHint: false,
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
                 ),
+                controller: textController,
               ),
+            ),
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-                child: Row(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () => _selectDate(context),
-                      child: const Text('Date'),
-                    ),
-                    Text(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+              child: Row(
+                children: [
+                  OutlinedButton.icon(
+                    onPressed: () => _selectDate(context),
+                    icon: const Icon(Icons.date_range),
+                    label: const Text('Select Date'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 16.0), 
+                    child: Text(
                       selectedDateString,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    )
-                  ],
-                ),
-              ),      
-              
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-                child: TextField(
-                  maxLength: 2000,
-                  maxLines: 5,
-                  minLines: 3,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Add some notes (optional)',
-                    labelText: 'Memo',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
                   ),
-                  controller: memoController,
-                ),
+                ],
               ),
+            ),      
+            
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+              child: TextField(
+                maxLength: 2000,
+                maxLines: 10,
+                minLines: 10,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Add some notes (optional)',
+                  labelText: 'Memo',
+                  alignLabelWithHint: false,
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                ),
+                controller: memoController,
+              ),
+            ),
 
-              // Save button
-              FilledButton(
-                onPressed: (selectedDateString.isEmpty || title.isEmpty) ? null : () {_onSave(context);},
-                child: Text('Save'),
-              )
-            ],
-          ),
+            // Save button
+            FilledButton(
+              onPressed: (selectedDateString.isEmpty || title.isEmpty) ? null : () {_onSave(context);},
+              child: Text('Save'),
+            )
+          ],
         ),
       ),
+      /*
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.go(AppRoutes.home);
         },
         child: const Icon(Icons.close),
       ),
+      */
     );
   }
 }
