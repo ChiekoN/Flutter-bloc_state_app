@@ -30,18 +30,21 @@ class DateDetailPage extends StatelessWidget {
           children = [
             // Title
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
               child: Text(
                 item.title,
-                style: Theme.of(context).textTheme.displaySmall, 
+                style: Theme.of(context).textTheme.displaySmall,
+                textAlign: TextAlign.center,
               ),
             ),
             // Date
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 0, 32),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 32),
               child: Text(
                 item.dateString,
-                style: Theme.of(context).textTheme.titleLarge,
+                style: Theme.of(context).textTheme.titleLarge!.apply(
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
             ),
             // Memo
