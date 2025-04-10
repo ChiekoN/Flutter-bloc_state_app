@@ -81,7 +81,7 @@ class _NewDatePageState extends State<NewDatePage> {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+        padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
         child: 
           Center(
           child: Column(
