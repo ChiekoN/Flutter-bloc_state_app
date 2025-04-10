@@ -7,6 +7,7 @@ import '../../shared/router.dart';
 import '../../shared/todate_cubit.dart';
 import '../../../domain/models/todate.dart';
 import 'memo_area.dart';
+import 'date_area.dart';
 
 
 class DateDetailPage extends StatelessWidget {
@@ -28,25 +29,8 @@ class DateDetailPage extends StatelessWidget {
         ];
         if(item != null) {
           children = [
-            // Title
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-              child: Text(
-                item.title,
-                style: Theme.of(context).textTheme.displaySmall,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            // Date
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 32),
-              child: Text(
-                item.dateString,
-                style: Theme.of(context).textTheme.titleLarge!.apply(
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
-            ),
+            // Date info
+            DateArea(todate: item),
             // Memo
             MemoArea(memoText: item.memo),
           ];
@@ -54,7 +38,7 @@ class DateDetailPage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(),
           body: SizedBox(
-            width: double.infinity,
+            //width: double.infinity,
             child:
               Padding(
                 padding: EdgeInsets.all(16),
@@ -66,15 +50,6 @@ class DateDetailPage extends StatelessWidget {
               ),
             ),
           );
-          /*
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              context.go(AppRoutes.home);
-            },
-            child: const Icon(Icons.close),
-          ),
-          */
-        
       }
     );
   }

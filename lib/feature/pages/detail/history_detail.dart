@@ -1,3 +1,4 @@
+import 'package:bloc_state_app/feature/pages/detail/date_area.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,7 +8,6 @@ import '../../shared/router.dart';
 import '../../shared/todate_cubit.dart';
 import '../../../domain/models/todate.dart';
 import 'memo_area.dart';
-
 
 
 class HistoryDetailPage extends StatelessWidget {
@@ -33,43 +33,24 @@ class HistoryDetailPage extends StatelessWidget {
               "Day in the past",
               style: Theme.of(context).textTheme.titleSmall, 
             ),
-            // Title
-            Text(
-              item.title,
-              style: Theme.of(context).textTheme.headlineLarge, 
-            ),
-            // Date
-            Text(
-              item.dateString,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
+            // Date info
+            DateArea(todate: item),
             // Memo
-            Text(
-              "Memo",
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            Text(
-              item.memo ?? "",
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
+            MemoArea(memoText: item.memo),
           ];
         }
         return Scaffold(
           appBar: AppBar(),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
-            ),
+          body: SizedBox(
+            child: 
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: children,
+                ),
+             ),
           ),
-          /*
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              context.go(AppRoutes.home);
-            },
-            child: const Icon(Icons.close),
-          ),
-          */
         );
       }
     );
