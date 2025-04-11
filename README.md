@@ -1,4 +1,4 @@
-# page_routing_app
+# Flutter: Demo app using Bloc state management
 
 This is a Flutter project extended from [Flutter-go_router](https://github.com/ChiekoN/Flutter-go_router) project.
 
@@ -38,7 +38,7 @@ In this app, I implemented `Bloc` (more precisely, `Cubit`) to handle the change
   - [BLoC for Beginners 📱 State Management • Flutter Tutorial](https://youtu.be/rF6eq1oru-Y?si=2E24NUCJKqnNU90d)
   - [📱 Todo App (Clean Architecture) • Flutter x BLoC Tutorial](https://youtu.be/brDKUf1yV6c?si=o19q0ab0la-8lwrZ)
 
-  These YouTube tutorials by [Mitch Koko](https://www.youtube.com/@createdbykoko) are great! It helped me to grab the concept of Bloc and how to write clean and organised code✨
+  These YouTube tutorials by [Mitch Koko](https://www.youtube.com/@createdbykoko) are great! It helped me to grab the concept of Bloc and taught me how to write clean and organised code✨
 
 
 ## Code
