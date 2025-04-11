@@ -1,4 +1,3 @@
-import 'package:bloc_state_app/feature/pages/detail/date_area.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +7,7 @@ import '../../shared/router.dart';
 import '../../shared/todate_cubit.dart';
 import '../../../domain/models/todate.dart';
 import 'memo_area.dart';
+import 'date_area.dart';
 
 
 class HistoryDetailPage extends StatelessWidget {
@@ -30,7 +30,7 @@ class HistoryDetailPage extends StatelessWidget {
         if(item != null) {
           children = [
             Text(
-              "Day in the past",
+              "Past date",
               style: Theme.of(context).textTheme.titleSmall, 
             ),
             // Date info
