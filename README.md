@@ -32,7 +32,7 @@ In this app, I implemented `Bloc` (more precisely, `Cubit`) to handle the change
 
 ## State management using Bloc/Cubit
 
-- Bloc document: [Bloc](ttps://bloclibrary.dev/)
+- Bloc document: [Bloc](https://bloclibrary.dev/)
 
 - YouTube Tutorials:
   - [BLoC for Beginners 📱 State Management • Flutter Tutorial](https://youtu.be/rF6eq1oru-Y?si=2E24NUCJKqnNU90d)
